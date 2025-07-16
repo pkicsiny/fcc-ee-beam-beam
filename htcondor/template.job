@@ -1,0 +1,20 @@
+executable          = %EXECFILENAME
+arguments           = "$(ProcId) %NTHREADS %NMACROPARTS %NTURNS %NSLICES %PYTHONEXEC %OUTDIR"
+output              = batchlog/%SIMKEY.$(ClusterId).$(ProcId).out
+error               = batchlog/%SIMKEY.$(ClusterId).$(ProcId).err
+log                 = batchlog/%SIMKEY.$(ClusterId).log
+
+# context will be replaced by the number of CPUs and GPUs requested
+%CONTEXT
++MaxRunTime                = %WALLTIME
+
+# the whole accounting group has one priority. group_u_ATS.gpu for GPU jobs preferred, group_u_ATS.all for CPU jobs preferred
++AccountingGroup           = "group_u_ATS.all"
+
+# change this path to your eos path of the zipped python environment
+should_transfer_files      = YES
+transfer_input_files       = root://eosuser.cern.ch//eos/user/p/pkicsiny/python_for_condor/miniforge3_xtrack_d.tar.gz, %PYTHONEXEC
+
+when_to_transfer_output    = ON_EXIT_OR_EVICT
+transfer_output_files      = ""
+queue

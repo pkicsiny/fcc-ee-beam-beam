@@ -7,10 +7,10 @@ Example scripts to run on CERN's slurm cluster:
 __launch_scan.py__
 
 launch script to submit jobs to the cluster
-in here you can define which python executable to use and
-which parameters to scan. Inside this file you have to specify the paths to put the
-input (called afs_dir) and output (called eos_dir) 
-data. This you need to adapt to your own file system.
+in here you can define:
+- python executable from above
+- input/output directories (output dir must match the dir defined at the top of __template.sh__)
+- parameters to scan
 
 __template.sh__
 

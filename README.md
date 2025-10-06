@@ -1,3 +1,5 @@
+formerly: https://gitlab.cern.ch/acc-models/fcc/fcc-ee-beam-beam
+
 remote: https://gitlab.cern.ch/pkicsiny/cluster
 
 Content: submission scripts for slurm like clusters such as on `bastion.cnaf.infn.it`. 

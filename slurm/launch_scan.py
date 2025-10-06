@@ -81,8 +81,8 @@ for th, nm, nt, ns in grid:
     os.system("sed -i 's#%SIMKEY#"+sim_key+"#g' " + exec_file)   
 
     # submit job
-#    command = f"sbatch --account=m4272 -t {walltime} -n 1 -c 1 {exec_file} {th} {nm} {nt} {ns} {python_exec} {walltime} {output_dir}"  # GPU
-    command = f"sbatch --account=m4272 -t {walltime} -n 1 -C cpu -c {th} {exec_file} {th} {nm} {nt} {ns} {python_exec} {walltime} {output_dir}"  # CPU
+#    command = f"sbatch --account=m4272 -t {walltime} -n 1 -c 1 {exec_file} {th} {nm} {nt} {ns} {python_exec} {walltime} {sim_output_dir}"  # GPU
+    command = f"sbatch --qos=debug --account=m4272 -t {walltime} -N 1 -C cpu -c {th} {exec_file} {th} {nm} {nt} {ns} {python_exec} {walltime} {sim_output_dir}"  # CPU
 
     print(f"[launch_scan.py] command: {command}")
     os.system(command)

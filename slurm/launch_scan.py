@@ -13,7 +13,7 @@ exec_key = "ws"
 python_exec = f"exec_{exec_key}.py"
 
 # estimated simulation time
-walltime = "2:00:00"  # [h:mm:ss] 1 day = 86400 s
+walltime = "00:10:00"  # [hh:mm:ss] 1 day = 86400 s
 
 # these can be arrays for parameter scans
 # you can define new parameters here too
@@ -64,7 +64,7 @@ for th, nm, nt, ns in grid:
     sim_input_dir  = os.path.join( input_dir, sim_key)
     sim_output_dir = os.path.join(output_dir, sim_key)
 
-    print(f"[launch_scan.py] Creating {sim_key} with walltime {walltime} [s]")
+    print(f"[launch_scan.py] Creating {sim_key} with walltime {walltime} [hh:mm:ss]")
 
     #clean up contents of input and output folders of this simulation
     if os.path.exists(sim_input_dir):
@@ -81,8 +81,8 @@ for th, nm, nt, ns in grid:
     os.system("sed -i 's#%SIMKEY#"+sim_key+"#g' " + exec_file)   
 
     # submit job
-#    command = f"sbatch -t {walltime} -n 1 -c 1 {exec_file} {th} {nm} {nt} {ns} {python_exec} {walltime} {output_dir}"  # GPU
-    command = f"sbatch --partition=slurm_hpc_acc -t {walltime} -n 1 -c {th} {exec_file} {th} {nm} {nt} {ns} {python_exec} {walltime} {output_dir}"  # CPU
+#    command = f"sbatch --account=m4272 -t {walltime} -n 1 -c 1 {exec_file} {th} {nm} {nt} {ns} {python_exec} {walltime} {output_dir}"  # GPU
+    command = f"sbatch --account=m4272 -t {walltime} -n 1 -C cpu -c {th} {exec_file} {th} {nm} {nt} {ns} {python_exec} {walltime} {output_dir}"  # CPU
 
     print(f"[launch_scan.py] command: {command}")
     os.system(command)

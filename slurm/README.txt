@@ -1,4 +1,4 @@
-Example scripts to run on CERN's HTCondor cluster
+Example scripts to run on CERN's slurm cluster
 - exec_ws.py: similar to 002_linear_tracking_with_ws_beambeam.ipynb
 - exec_ss.py: similar to 003_linear_tracking_with_ss_beambeam.ipynb
 - exec_ws_fma.py: similar to 004_linear_tracking_with_ws_beambeam_fma.ipynb

@@ -8,7 +8,7 @@ __launch_scan.py__
 
 Launch script to submit jobs to the cluster. What you need to define/modify:
 - python executable from above
-- input/output directories (output dir must match the dir defined at the top of __template.sh__)
+- input/output directories (`output_dir` must match the dir defined at the top of __template.sh__)
 - parameters to scan
 
 __template.sh__

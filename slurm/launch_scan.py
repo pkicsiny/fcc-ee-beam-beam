@@ -74,9 +74,9 @@ for th, nm, nt, ns in grid:
     os.makedirs(sim_input_dir)
     os.makedirs(sim_output_dir)
 
-    # create submission files
+    # create submission file from template.sh
     exec_file_name = 'slurm_job.sh'
-    exec_file = os.path.join(input_dir, exec_file_name)
+    exec_file = os.path.join(sim_input_dir, exec_file_name)
     shutil.copyfile(os.path.join(root_dir, 'template.sh'), exec_file)
     os.system("sed -i 's#%SIMKEY#"+sim_key+"#g' " + exec_file)   
 

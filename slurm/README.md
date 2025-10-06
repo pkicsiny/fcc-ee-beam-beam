@@ -14,15 +14,14 @@ in here you can define:
 
 __template.sh__
 
-this is a bash script and it will be executed once the job is given
-a compute node on the cluster. This script activates the python environment but you
-need to specify the path to it. 
-Replace `/home/HPC/pkicsiny/fccee-beambeam/tutorials/slurm` with the actual path
-to these files.
-Replace `/home/HPC/pkicsiny/miniforge3/bin/activate` with the actual path
-to the activation script to your conda environment. You can find it with `which conda`.
-Then it calls the python executable with a set of parameters. The bash script also creates the output 
-directory specified in launch_scan.py (the eos_dir).
+this is a bash script and it will be executed once the job is allocated
+a compute node on the cluster. The properties in the script are filled in by __launch_scan.py__
+You have to replace:
+- path to output and error files at the top: `/home/HPC/pkicsiny/fccee-beambeam/tutorials/slurm`. 
+The path set must match `output_dir` in __launch_scan.py__.
+- `/home/HPC/pkicsiny/miniforge3/bin/activate` with the conda activation script in your file system.
+You can find this by typing `which conda`.
+The bash script calls the python executable with one set of parameters.
 
 Launch the job submission by:
 `python launch_scan.py`

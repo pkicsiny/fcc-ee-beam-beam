@@ -1,8 +1,8 @@
 Example scripts to run on CERN's slurm cluster:
 
-- exec_ws.py: similar to 002_linear_tracking_with_ws_beambeam.ipynb
-- exec_ss.py: similar to 003_linear_tracking_with_ss_beambeam.ipynb
-- exec_ws_fma.py: similar to 004_linear_tracking_with_ws_beambeam_fma.ipynb
+- __exec_ws.py__: similar to 002_linear_tracking_with_ws_beambeam.ipynb
+- __exec_ss.py__: similar to 003_linear_tracking_with_ss_beambeam.ipynb
+- __exec_ws_fma.py__: similar to 004_linear_tracking_with_ws_beambeam_fma.ipynb
 
 __launch_scan.py__
 

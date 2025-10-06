@@ -6,15 +6,14 @@ Example scripts to run on CERN's slurm cluster:
 
 __launch_scan.py__
 
-launch script to submit jobs to the cluster
-in here you can define:
+Launch script to submit jobs to the cluster. What you need to define/modify:
 - python executable from above
 - input/output directories (output dir must match the dir defined at the top of __template.sh__)
 - parameters to scan
 
 __template.sh__
 
-this is a bash script and it will be executed once the job is allocated
+This is a bash script and it will be executed once the job is allocated
 a compute node on the cluster. The properties in the script are filled in by __launch_scan.py__
 You have to replace:
 - path to output and error files at the top: `/home/HPC/pkicsiny/fccee-beambeam/tutorials/slurm`. 
